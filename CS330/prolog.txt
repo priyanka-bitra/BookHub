@@ -1,0 +1,57 @@
+CS 330-001 Formal Methods and Models
+Prolog Programming Assignment, Spring 2018
+Due 11:59pm Monday, April 8
+
+Assignment:
+You are designing a system for managing software packages on a computer.  To that end, you will have 
+information about the available software packages, stored in the form of Prolog facts.  
+The types of facts are as follows:
+
+    package(package_name)   	  Package_name is the name of a package which is available on the system.
+    
+    depends(p1,p2)          	  Indicates that package p1 depends on package p2 (meaning that p1 can only 
+				  be installed if p2 is also installed).  Any package may have multiple
+				  dependencies.
+    
+You can and should make up your own facts to test your code, although be sure to keep the same format for 
+the facts, because we can and will replace your facts with our own for testing.  You may assume that there 
+are no circular dependencies represented in the facts.
+
+Given the facts above, you are to provide predicates which will perform the following 5 tasks:
+
+    valid_list(L)          	 Succeeds when every element in list L is the name of a package which 
+				 is available on the system.
+    
+    unsatisfied_dependency(P,L)  Succeeds when P is a dependency of some member of L, but P is not a 
+			         member of L itself.
+    
+    unsatisfied_dependency(L)    Succeeds when any member of L has an unsatisfied dependency.
+    
+    dependency_check(L)          Succeeds when L has no unsatisfied dependencies.
+    
+    ext_depends(P1,P2)           Succeeds when P1 depends on package P2, either directly or indirectly 
+				 by some sequence of of dependencies.
+    
+You may use some of the predicates you've written as part of another predicate, and you may write your own 
+helper predicates to assist you in writing your code (for example, a notmember predicate would make sense).
+    If you've written your rules well, then a calls to valid_list and dependency_check would tell you if a 
+list of packages names could potentially be installed on your system.
+    You may NOT use any Prolog built-in calls (including not(X)), and you may not use the not operator or 
+not equals operator for this project.  Otherwise you can use all and only features that are in the appendix.
+    
+Submission:
+Email your submissions to the TA, (stadepal@gmu.edu).  Be sure to include "[CS330 PA]" at the beginning 
+of the subject heading when you submit.
+Your submission must include:
+- your code: the text file "rules.pl" containing prolog code implementing your predicates.
+- your data: the text file "facts.pl" containing the sample facts which you used to test your code.
+- evidence of testing: a file containing test queries which you've run through the Prolog interpreter, 
+showing at least 4 tests per each of the 5 predicates, and which show instances of both true and false 
+outputs for each predicate.  The output MUST include annotations describing what each test query is 
+asking (see Fig A.1 on p. 341 of the textbook) - a good approach would be to capture a prolog session, 
+and then edit it by hand to include the annotations.
+
+Honor Code:
+You may seek help from anyone regarding Prolog as a language, but to be consistent with the Honor Code, you 
+may not collaborate on the project itself, and any work that you submit must be your own independent work.
+
