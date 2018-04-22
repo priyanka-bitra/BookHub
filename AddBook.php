@@ -8,30 +8,25 @@
 	<meta name="description" content="Welcome to BookHub, we trade your used books" />
 	<meta name="keywords" content="Books">
 	<meta name="authors" content="Priyanka, Jahnavi, Manpreet, Amar" />
-    
+  <link rel="stylesheet" type="text/css" href="style.css">
+	<center><h1><a href="index.php" style="color: blue;">BookHub</a></h1></center>
+	<title>Sell A Book</title>
 	</head>
 <body>
-	 <center>
-	<h1>BookHub</h1>
-	</center>
-
-
-<form action="http://localhost/~amarbat/Internal/BookAdded.php">
+<form action="http://localhost/~amarbat/Internal/P2/BookAdded.php">
   Enter the details of the book you would like to sell!<br>
-  Book name:<br>
+  <label>Book name:</label><br>
   <input type="text" name="bookName" value=" ">
   <br>
-  Author name:<br>
-  <input type="text" name="authorName" value=" ">
+  <label>Author name:</label><br>
+  <input type="text" name="Author" value=" ">
   <br>
-  Book Edition:<br>
-  <input type="text" edition="editionYear" value=" ">
+  <label>Book Edition:</label><br>
+  <input type="text" edition="BookEd" value=" ">
   <br>
 
   <input type="submit" name="submit" value="Submit">
 </form> 
-
-
 </body>
 </html>
 

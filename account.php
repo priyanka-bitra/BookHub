@@ -12,6 +12,7 @@ Change Password: </br> <!make a button here>
 //using the studentId passed from the login page, get all the books that have that student id with them
 //!!!!NEED TO ADD A BUTTON BEHIND EACH book to Update the availibility
 ////////////// the availability button will change the information in the database.
+?>
 <h2>Book Details</h2> 
 <table>
   <tr>

@@ -6,18 +6,18 @@
 	</style>
 	<title>AddBook</title>
 		 <center>
-	<h1>BookHub</h1>
+	<h1><a href="index.php" style="color: blue;">BookHub</a></h1>
 	</center>
-
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
-
 
 <?php
 //need to take care of the variable StudentId
 //here you need to make the book available
 //check if the available works
+	$username=$_GET['username'];
+	
 	if(isset($_POST['submit'])){
 		$data_missing=array();
 		
@@ -43,48 +43,52 @@
 		}
 		
 		if(empty($data_missing)){
-			require_once('../mysqli_connect.php');
+			$dbc = mysqli_connect('localhost', 'studentweb', 'turtledove', 'BookHub');
+			$findStudentId="SELECT studentId FROM user WHERE username='$username'";
+      $studentId=mysqli_query($dbc,$findStudentId);
 			$availability='Y';
-			$query="INSERT INTO books (bookName, Author, Available, BookEd, StudentId, BookId)
-			VALUES(?,?,?,?,NULL,NULL)";
+			
+			$query="INSERT INTO Books (Name, Author, Available, BookEd, StudentId, BookId)
+							VALUES(?,?,?,?,?,NULL)";
 			
 			$stmt=mysqli_prepare($dbc,$query);
-			mysqli_stmt_bind_param($stmt,"sssi", $b_name, $author, $availability,
-								   $b_e);
+			mysqli_stmt_bind_param($stmt,"sssii", $b_name, $author, $availability,
+								   $b_e,$studentId);
 			mysqli_stmt_execute($stmt);
 			
 			$affected_rows=mysqli_stmt_affected_rows($stmt);
-			if($affected_rows==1){
+				if($affected_rows==1){
 				echo 'Book added successfully';
 				mysqli_stmt_close($stmt);
 				mysqli_close($dbs);
-			}else{
-				echo 'error occurred<br />';
-				echo mysqli_error();
-				mysqli_stmt_close($stmt);
-				mysqli_close($dbs);
-		
+				header('location: http://localhost/~amarbat/Internal/P2/index.php');
+				}else{
+					echo 'error occurred<br />';
+					echo mysqli_error();
+					mysqli_stmt_close($stmt);
+					mysqli_close($dbs);
+					}
 			}
-		
-		}else{
-			echo 'You need to enter the following data <br />';
-			foreach($data_missing as $missing){
-				echo "$missing <br />";
+			else{
+			echo 'You need to enter the following data: <br />';
+				foreach($data_missing as $missing){
+					echo "$missing <br />";
 				
+				}
 			}
-		}
 	}
 ?>
-<form action="http://localhost/~amarbat/Internal/BookAdded.php">
+
+<form action="http://localhost/~amarbat/Internal/P2/BookAdded.php">
   Enter the details of the book you would like to sell!<br>
   Book name:<br>
   <input type="text" name="bookName" value=" ">
   <br>
   Author name:<br>
-  <input type="text" name="authorName" value=" ">
+  <input type="text" name="Author" value=" ">
   <br>
   Book Edition:<br>
-  <input type="text" edition="editionYear" value=" ">
+  <input type="text" name="BookEd" value=" ">
   <br>
 
   <input type="submit" name="submit" value="Submit">
