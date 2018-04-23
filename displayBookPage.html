@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.vertical-menu {
-    width: 200px;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
 }
 
-.vertical-menu a {
-    background-color: #eee;
-    color: black;
-    display: block;
-    padding: 12px;
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
 }
 
-.vertical-menu a:hover {
-    background-color: #ccc;
+li a:hover {
+    background-color: #111;
 }
 
-.vertical-menu a.active {
-    background-color: #4CAF50;
-    color: white;
+.active {
+    background-color: red;
 }
 </style>
 </head>
 <body>
 
-<h1>Vertical Menu</h1>
-
-<div class="vertical-menu">
-  <a href="#" class="active">Home</a>
-  <a href="https://cdn.rawgit.com/priyanka-bitra/BookHub/b7998a02/CreatePost.html">Sell a Book</a>
-  <a href="https://cdn.rawgit.com/priyanka-bitra/BookHub/b7998a02/displayBookPage.html">Buy a Book</a>
-  <a href="https://cdn.rawgit.com/priyanka-bitra/BookHub/b7998a02/AccountInfo.html">Account Information</a>
-  <a href="#">Link 4</a>
-</div>
+<ul>
+  <li><a href="https://cdn.rawgit.com/priyanka-bitra/BookHub/b7998a02/CreatePost.html">Sell a Book</a></li>
+  <li><a href="https://cdn.rawgit.com/priyanka-bitra/BookHub/b7998a02/displayBookPage.html">Buy a Book</a></li>
+  <li><a href="https://cdn.rawgit.com/priyanka-bitra/BookHub/b7998a02/AccountInfo.html">Account Information</a></li>
+  <li><a href="https://cdn.rawgit.com/priyanka-bitra/BookHub/cb1c8dc5/login.html">Logout</a></li>
+</ul>
 
 </body>
 </html>
