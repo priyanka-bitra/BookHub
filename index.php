@@ -38,11 +38,12 @@
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-      <p> <a href="AddBook.php?$_SESSION['username']" style="color: blue;">Sell a Book</a> </p>
-      <p> <a href="account.php?$_SESSION['username']" style="color: blue;">Account</a> </p>
-      <p> <a href="Buy.php?$_SESSION['username']" style="color: blue;">Buy A Book</a> </p>
-  
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+   
+     <p> <a href="AddBook.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Sell a Book</a> </p>
+     <p> <a href="account.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Account</a> </p>
+     <p> <a href="Buy.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Buy A Book</a> </p>
+     
+     <p> <a href="index.php?logout=1" style="color: red;">logout</a> </p>
     <?php endif ?>
 </div>
 		

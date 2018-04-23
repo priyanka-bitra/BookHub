@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
@@ -16,8 +19,6 @@
 //need to take care of the variable StudentId
 //here you need to make the book available
 //check if the available works
-	$username=$_GET['username'];
-	
 	if(isset($_POST['submit'])){
 		$data_missing=array();
 		
@@ -44,23 +45,25 @@
 		
 		if(empty($data_missing)){
 			$dbc = mysqli_connect('localhost', 'studentweb', 'turtledove', 'BookHub');
-			$findStudentId="SELECT studentId FROM user WHERE username='$username'";
-      $studentId=mysqli_query($dbc,$findStudentId);
+			$username=$_SESSION['username'];
+      $StudentId=$_SESSION['student_id'];
 			$availability='Y';
 			
 			$query="INSERT INTO Books (Name, Author, Available, BookEd, StudentId, BookId)
 							VALUES(?,?,?,?,?,NULL)";
-			
+
+
 			$stmt=mysqli_prepare($dbc,$query);
+			
 			mysqli_stmt_bind_param($stmt,"sssii", $b_name, $author, $availability,
-								   $b_e,$studentId);
+								   $b_e,$StudentId);
 			mysqli_stmt_execute($stmt);
 			
 			$affected_rows=mysqli_stmt_affected_rows($stmt);
 				if($affected_rows==1){
 				echo 'Book added successfully';
 				mysqli_stmt_close($stmt);
-				mysqli_close($dbs);
+				mysqli_close($dbc);
 				header('location: http://localhost/~amarbat/Internal/P2/index.php');
 				}else{
 					echo 'error occurred<br />';
@@ -72,7 +75,7 @@
 			else{
 			echo 'You need to enter the following data: <br />';
 				foreach($data_missing as $missing){
-					echo "$missing <br />";
+					echo "$missing <br/>";
 				
 				}
 			}

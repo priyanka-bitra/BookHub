@@ -28,6 +28,10 @@ mysql> CREATE TABLE user (						\
 	->date_entered TIMESTAPM,\
 	->student_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY\
 	->);\
+mysql> GRANT INSERT,SELECT,UPDATE ON BookHub.*\
+	->TO \'92studentweb\'92@\'91localhost\'92\
+	->IDENTIFIED BY \'91turtledove\'92\
+\
 \
 mysql>CREATE TABLE books (\
 	->Name VARCHAR(100) NOT NULL\

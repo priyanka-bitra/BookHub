@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +16,7 @@
 	<title>Sell A Book</title>
 	</head>
 <body>
+	
 <form action="http://localhost/~amarbat/Internal/P2/BookAdded.php">
   Enter the details of the book you would like to sell!<br>
   <label>Book name:</label><br>

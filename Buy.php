@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
@@ -7,9 +10,9 @@
 <body>
 
 <?php
+
 //used to get the Available books to the screen
 //loop is used to get a nice formatted available books list
-
 // Get a connection for the database
 $dbc = mysqli_connect('localhost', 'studentweb', 'turtledove', 'BookHub');
 
