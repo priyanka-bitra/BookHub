@@ -1,3 +1,16 @@
+<?php
+  session_start();
+  
+  if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
@@ -20,12 +33,13 @@
   	  <button type="submit" class="btn" name="changePassword">change password</button>
   	</div>
   	<p>
-		<a href="http://localhost/~amarbat/Internal/P2/index.php">GO back to home page</a>
+		<a href="http://localhost/~amarbat/Internal/P3/index.php">GO back to home page</a>
   	</p>
   </form>
 <?php
 
 if (isset($_POST['changePassword'])) {
+	$db = mysqli_connect('localhost', 'studentweb', 'turtledove', 'BookHub');
   $oldPassword = mysqli_real_escape_string($db, $_POST['OldPassword']);
   $newPassword = mysqli_real_escape_string($db, $_POST['NewPassword']);
   
@@ -41,20 +55,18 @@ if (isset($_POST['changePassword'])) {
   	$newPassword = md5($newPassword); //encryption
 	
   	$query = "SELECT password FROM user WHERE username='$username' AND password='$password';";
-	$query2="INSERT INTO user VALUES ($newPassword)";
+		$query2="INSERT INTO user(password) VALUES ($newPassword)";
 
 	
   	$results = mysqli_query($db, $query);
-	$results = mysqli_query($db, $query2);
+		$results1 = mysqli_query($db, $query2);
 	
    
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['username'] = $username;
   	  $_SESSION['success'] = "You are now logged in";
       $_SESSION['student_id']=$user['student_id'];
-  	  header('location: http://localhost/~amarbat/Internal/P2/index.php');
-  	}else {
-  		array_push($errors, "Wrong username/password combination");
+  	  header('location: http://localhost/~amarbat/Internal/P3/index.php');
   	}
   }
 }

@@ -1,5 +1,14 @@
 <?php
 session_start();
+if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,19 +26,19 @@ session_start();
 	</head>
 <body>
 	
-<form action="http://localhost/~amarbat/Internal/P2/BookAdded.php">
+<form action="http://localhost/~amarbat/Internal/P3/BookAdded.php">
   Enter the details of the book you would like to sell!<br>
   <label>Book name:</label><br>
-  <input type="text" name="bookName" value=" ">
+  <input type="text" name="bookName">
   <br>
   <label>Author name:</label><br>
-  <input type="text" name="Author" value=" ">
+  <input type="text" name="Author">
   <br>
   <label>Book Edition:</label><br>
-  <input type="text" edition="BookEd" value=" ">
+  <input type="text" edition="BookEd">
   <br>
 
-  <input type="submit" name="submit" value="Submit">
+  <input type="submit" name="addBook" value="Submit">
 </form> 
 </body>
 </html>

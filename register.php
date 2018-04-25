@@ -32,7 +32,7 @@
   	  <button type="submit" class="btn" name="reg_user">Register</button>
   	</div>
   	<p>
-  		Already a member? <a href="http://localhost/~amarbat/Internal/P2/login.php">Sign in</a>
+  		Already a member? <a href="http://localhost/~amarbat/Internal/P3/login.php">Sign in</a>
   	</p>
   </form>
 </body>

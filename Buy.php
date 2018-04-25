@@ -1,10 +1,20 @@
 <?php
 session_start();
+if (!isset($_SESSION['username'])) {
+  	$_SESSION['msg'] = "You must log in first";
+  	header('location: login.php');
+  }
+  if (isset($_GET['logout'])) {
+  	session_destroy();
+  	unset($_SESSION['username']);
+  	header("location: login.php");
+  }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
 	<title>Buy</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -30,7 +40,8 @@ if($response){
     cellspacing="5" cellpadding="8">
     <tr><td align="left"><b>Book Name</b></td>
     <td align="left"><b>Author</b></td>
-    <td align="left"><b>Book Edition</b></td>';
+    <td align="left"><b>Book Edition</b></td>
+		 <td align="left"><b>contact</b></td>';
     
 // mysqli_fetch_array will return a row of data from the query
 // until no further data is available
@@ -41,6 +52,7 @@ if($response){
            $row['Name'] . '</td><td align="left">' .
            $row['Author'] . '</td><td align="left">' .
            $row['BookEd'] . '</td><td align="left">' ;
+		   echo '<a href="https://sellbookchat.glitch.me/">Chat</a>';
            echo '</tr>';
         }
     }

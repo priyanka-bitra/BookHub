@@ -37,9 +37,10 @@
 
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+    	<p>Welcome <strong><?php echo $_SESSION['username'];
+      ?></strong></p>
    
-     <p> <a href="AddBook.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Sell a Book</a> </p>
+     <p> <a href="BookAdded.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Sell a Book</a> </p>
      <p> <a href="account.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Account</a> </p>
      <p> <a href="Buy.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Buy A Book</a> </p>
      
