@@ -1,0 +1,3 @@
+loadTest.php:
+tests if the database can handle adding and retreiving thousand entries
+in less than a second

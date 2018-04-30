@@ -43,7 +43,7 @@
      <p> <a href="BookAdded.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Sell a Book</a> </p>
      <p> <a href="account.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Account</a> </p>
      <p> <a href="Buy.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Buy A Book</a> </p>
-     
+     <p> <a href="TestFiles/loadTest.php?<?php echo htmlspecialchars(SID); ?>" style="color: blue;">Loadtest</a> </p>
      <p> <a href="index.php?logout=1" style="color: red;">logout</a> </p>
     <?php endif ?>
 </div>

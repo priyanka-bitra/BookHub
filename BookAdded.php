@@ -13,31 +13,6 @@ if (!isset($_SESSION['username'])) {
 <?php
 if(isset($_POST['addBook'])){
 $dbc = mysqli_connect('localhost', 'studentweb', 'turtledove', 'BookHub');
-/*
-	if(isset($_POST['submit'])){
-		$data_missing=array();
-		
-		if(empty($_POST['bookName'])){
-			$data_missing[]='Book Name';
-		}
-		else {
-			$b_name=trim($POST['bookName']);
-		}
-		
-		if(empty($_POST['Author'])){
-			$data_missing[]='Author';
-		}
-		else {
-			$author=trim($POST['Author']);
-		}
-		
-		if(empty($_POST['BookEd'])){
-			$data_missing[]='Book Edition';
-		}
-		else {
-			$b_e=trim($POST['BookEd']);
-		}
-		*/
 	$errors = array();
 	$b_name = mysqli_real_escape_string($dbc, $_POST['bookName']);
   $author = mysqli_real_escape_string($dbc, $_POST['Author']);
@@ -59,7 +34,7 @@ $dbc = mysqli_connect('localhost', 'studentweb', 'turtledove', 'BookHub');
 			$availability='Y';
 			
 			$query="INSERT INTO Books (Name, Author, Available, BookEd, StudentId, BookId)
-							VALUES('$b_name','$author','$availability,'$b_e','$StudentId')";
+							VALUES('$b_name','$author','$availability','$b_e','$StudentId',NULL)";
 			mysqli_query($dbc, $query);
 			$_SESSION['success'] = "Book Successfully added";
 	
@@ -82,7 +57,8 @@ $dbc = mysqli_connect('localhost', 'studentweb', 'turtledove', 'BookHub');
 
 
 <form method="post" action="http://localhost/~amarbat/Internal/P3/BookAdded.php">
-  	<?php include('errors.php'); ?>
+  	<?php include('errors.php');
+		echo $_SESSION['student_id'];?>
   	<div class="input-group">
   		<label>Book name:</label>
   		<input type="text" name="bookName" >
