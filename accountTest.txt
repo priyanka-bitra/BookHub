@@ -1,0 +1,10 @@
+account.php test:
+
+output: user can see their books.
+
+input: push: 'Click here'
+output: (user gets redirected to passwordChange.php)
+
+input: change availibility: radio: click: No
+input: push: Save Changes
+output: Nothing happens

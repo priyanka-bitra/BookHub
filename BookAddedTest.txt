@@ -1,0 +1,16 @@
+BookAdded.php test:
+
+input: push: BookHub
+output: (user gets redirected to index.php)
+
+input: text: Book name:     llll
+input: text: Author name:   kkkk
+input: text: Book Edition:  12
+input: push: List Book
+    output: 'Book Successfully added' (user gets redirected to index.php)
+    
+input: text: Book name:     null
+input: text: Author name:   null
+input: text: Book Edition:  0000
+input: push: List Book
+    output: 'Book Successfully added' (user gets redirected to index.php)

@@ -1,0 +1,13 @@
+index.php Test:
+
+input: push: 'Sell A Book'
+output: (user gets redirected to BookAdded.php)
+
+input: push: 'Account'
+output: (user gets redirected to account.php)
+
+input: push: 'Buy A Book'
+output: (user gets redirected to Buy.php)
+
+input: push: 'logout'
+output: (user gets redirected to login.php)

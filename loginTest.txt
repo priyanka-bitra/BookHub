@@ -1,0 +1,11 @@
+login.php test:
+input: Username: ppppp
+input: Password: ooooo
+output: "Wrong username/password combination" message after pushing Login
+
+input: text: Username: HEY
+input: text: Password: oo
+output: text: "You are now logged in" (the user gets redirected into "index.php")
+
+input: push: "Sign up"
+output: (the user gets redirected to the "register.php")

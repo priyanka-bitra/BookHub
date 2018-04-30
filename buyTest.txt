@@ -1,0 +1,6 @@
+buy.php test:
+
+Output: user can see all the available books
+
+input: push: Chat
+output: the user gets redirected to the "https://sellbookchat.glitch.me/"

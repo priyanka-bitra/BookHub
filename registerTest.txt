@@ -1,0 +1,47 @@
+register.php test:
+
+input: text: Username:  HEY
+input: text: Email:     jj@email.com
+input: text: Password:  oo
+input: text: Confirm Password: oo
+input: push: Register:
+    output: "Has to be a mason email
+                Username already exists"
+    
+input: text: Username:  HEYY
+input: text: Email:     jj
+input: text: Password:  oo
+input: text: Confirm Password:  oo
+input: push: Register:
+    output:     "Please include '@' in the email. 'jj' is missing an '@'
+    
+input: text: Username:  HEYY
+input: text: Email:     jj@
+input: text: Password:  oo
+input: text: Confirm Password:  oo
+input: push: Register:
+    output:     "Please include a part following '@'. 'jj@' is incomplete
+    
+input: text: Username:  HEYY
+input: text: Email:     jj@masonlive.gmu.edu
+input: text: Password:  ooo
+input: text: Confirm Password:  oo
+input: push: Register:
+    output:     "The two passwords do not match"
+    
+input: text: Username:  HEYY
+input: text: Email:     jj@masonlive.gmu.edu@masonlive.gmu.edu@masonlive.gmu.edu
+input: text: Password:  oo
+input: text: Confirm Password:  oo
+input: push: Register:
+    output:     "a part followong '@' should not contain the symbol '@'"
+    
+input: push: 'Sign in'
+    output: (The user gets redirected to login.php)
+    
+input: text: Username:  HEYY
+input: text: Email:     jj@masonlive.gmu.edu
+input: text: Password:  oo
+input: text: Confirm Password:  oo
+input: push: Register:
+    output:     "You are now logged in" (user gets redirected to index.php)
